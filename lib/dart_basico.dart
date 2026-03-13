@@ -1,32 +1,65 @@
-// definicion de tipos de datos en dart
 void main() {
-  int edad = 30; // tipo de dato entero
-  double altura = 1.75; // tipo de dato decimal
-  num peso = 70.5; // tipo de dato numérico (puede ser entero o decimal)
-  String nombre = "Juan"; // tipo de dato cadena de texto
-  bool esMayorDeEdad = true; // tipo de dato booleano
-  List<String> hobbies = ["futbol", "musica", "viajar"]; // tipo de dato lista
-  Map<String, dynamic> calificaciones = {
-    "matematicas": 90,
-    "lengua": 85,
-    "ciencias": 92,
-  }; // tipo de dato mapa
-  Set<String> frutas = {
-    "manzana",
-    "banana",
-    "naranja",
-  }; // tipo de dato conjunto
-  Runes unicode = Runes('\u2665'); // tipo de dato runas (caracteres unicode)
-  Symbol simbolo = #simbolo; // tipo de dato símbolo
+  //comparar 3 numeros
+  int a = 10;
+  int b = 20;
+  int c = 15;
 
-  print("El nombre es: $nombre");
-  print("La edad es: $edad");
-  print("El peso es: $peso");
-  print("La altura es: $altura");
-  print("Las calificaciones son: $calificaciones");
-  print("¿Es mayor de edad? $esMayorDeEdad");
-  print("Los hobbies son: $hobbies");
-  print("Las frutas son: $frutas");
-  print("El carácter unicode es: $unicode");
-  print("El símbolo es: $simbolo");
+  if (a > b && a > c) {
+    print("El número $a es el mayor.");
+  } else if (b > a && b > c) {
+    print("El número $b es el mayor.");
+  } else if (c > a && c > b) {
+    print("El número $c es el mayor.");
+  } else {
+    print("Hay números iguales o no se pudo determinar el mayor.");
+  }
+  //switch case de 3 elementos tipo frutas
+  String fruta = "manzana";
+  switch (fruta) {
+    case "manzana":
+      print("La fruta es una manzana.");
+      break;
+    case "banana":
+      print("La fruta es una banana.");
+      break;
+    case "naranja":
+      print("La fruta es una naranja.");
+      break;
+    default:
+      print("La fruta no es ninguna de las anteriores.");
+  }
+  //  estructura de ciclo for basica que recorra un arreglo de frutas
+  List<String> frutas = ["manzana", "banana", "naranja"];
+
+  for (int i = 0; i < frutas.length; i++) {
+    print("Fruta en la posición $i: ${frutas[i]}");
+  }
+  // estructura de ciclo while que recorra un arreglo de nombres de marcas de carros
+
+  List<String> marcasCarros = ["Toyota", "Honda", "Ford"];
+  int index = 0;
+  while (index < marcasCarros.length) {
+    print("Marca de carro en la posición $index: ${marcasCarros[index]}");
+    index++;
+  }
+  // estructura tipo ciclo do while de nombres de equipos de futbol colombiano,teniendo encuenta control de errores y exepciones
+  List<String> equiposFutbolColombiano = [
+    "Atlético Nacional",
+    "Millonarios",
+    "América de Cali",
+  ];
+
+  int indexEquipos = 1;
+
+  do {
+    try {
+      print(
+        "Equipo de fútbol colombiano en la posición $indexEquipos: ${equiposFutbolColombiano[indexEquipos]}",
+      );
+      indexEquipos++;
+    } catch (e) {
+      print("Error: $e. No hay más equipos para mostrar.");
+      break;
+    }
+  } while (indexEquipos < equiposFutbolColombiano.length);
 }
